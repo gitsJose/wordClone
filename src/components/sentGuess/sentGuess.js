@@ -4,7 +4,7 @@ function SentGuess({guessList,setGuessList}) {
   return (
   <div className="guess-results">
     {guessList.map((guess,index) => (
-      <p className="guess" key={`${guess.guess}${index}`}>{guess.guess}</p>)
+      <p className="guess" key={`${guess}${index}`}>{guess}</p>)
       )
     }
   </div>);
