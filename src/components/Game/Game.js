@@ -4,7 +4,6 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import GuessForm  from '../guessForm'
 import GuessResults from '../guessResults/guessResults';
-import { NUM_OF_GUESSES_ALLOWED } from '../../constants'
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
@@ -18,13 +17,6 @@ function Game() {
   let frontEndCount = guessCount + 1;
 
   function handleSubmission(playerGuess, guessCount){
-    // this works
-    // let newList = [...guessList]
-    // newList[guessCount] = playerGuess  
-    // setGuessList(newList)
-    // setGuessCount(guessCount + 1);
-    // console.log(guessCount,newList, newList[guessCount], 'Testing HandleSubmission / GuessList')
-
     let newList = [...guessList]
     let splitGuess = playerGuess.split('')
     console.log(splitGuess, 'splitGuess')
