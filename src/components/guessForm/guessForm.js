@@ -1,9 +1,9 @@
 import React from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+
 function GuessForm({handleSubmission, guessCount}) { 
   const [playerGuess, setPlayerGuess] = React.useState('')
-
-  
+    
   function handleFormSubmit(event){
     event.preventDefault();
     if(guessCount == NUM_OF_GUESSES_ALLOWED){
