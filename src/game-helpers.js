@@ -53,3 +53,8 @@ export function checkGuess(guess, answer) {
 
   return result;
 }
+
+// export function isGuessCorrect(arrayObject){
+  
+
+// }

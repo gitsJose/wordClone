@@ -5,6 +5,7 @@ import { WORDS } from '../../data';
 import GuessForm  from '../guessForm';
 import GuessResults from '../guessResults/guessResults';
 import { checkGuess } from '../../game-helpers';
+import Banner from '../Banner/Banner'
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -15,11 +16,16 @@ console.info({ answer });
 function Game() {
   const [guessList, setGuessList] = React.useState([[''],[''],[''],[''],[''],['']])
   const [guessCount, setGuessCount] = React.useState(0)
-  let frontEndCount = guessCount + 1;
+  const [isAnswerCorrect, setIsAnswerCorrect] = React.useState(false) ;
 
   function handleSubmission(playerGuess, guessCount){
     let newList = [...guessList]
     newList[guessCount] = checkGuess(playerGuess, answer)
+    
+    if(playerGuess == answer){
+      setIsAnswerCorrect(true);
+    }
+
     // console.log("NewListTest",newList)
 
     /* code works, trying something new - exercise 4
@@ -39,7 +45,8 @@ function Game() {
 
   return <>
     <GuessResults guessList={guessList} guessCount={guessCount} />
-    <GuessForm handleSubmission={handleSubmission} guessCount={guessCount} />
+    <GuessForm handleSubmission={handleSubmission} guessCount={guessCount} isAnswerCorrect={isAnswerCorrect} />
+    {(isAnswerCorrect == true || guessCount == 6) ? <Banner isAnswerCorrect={isAnswerCorrect} answer={answer} guessCount={guessCount}/> : ""}
   </>;
 }
 

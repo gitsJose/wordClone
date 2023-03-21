@@ -6,6 +6,8 @@ function Grid({guessList, guessCount}) {
   let rows = range(0, 6, 1)
   let cols = range(0,5,1)
   
+  let filteredArr = guessCount > 0 ? Object.entries(guessList[guessCount - 1]) : ''
+  console.log("filtered", filteredArr, guessCount, guessList)
   return (
     <div className="guess-results">
     {rows.map(((row,index) => (

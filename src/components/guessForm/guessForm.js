@@ -1,11 +1,16 @@
 import React from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function GuessForm({handleSubmission, guessCount}) { 
+function GuessForm({handleSubmission, guessCount, isAnswerCorrect}) { 
   const [playerGuess, setPlayerGuess] = React.useState('')
     
   function handleFormSubmit(event){
     event.preventDefault();
+    
+    if( isAnswerCorrect == true){
+      return
+    }
+
     if(guessCount == NUM_OF_GUESSES_ALLOWED){
       window.alert('Max Number of Guesses Reached')
       return
